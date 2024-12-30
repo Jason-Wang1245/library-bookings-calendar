@@ -5,6 +5,8 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
 import { booking } from "@prisma/client";
 
+export const dynamic = 'force-dynamic'
+
 export default function Calendar({ bookings }: { bookings: booking[] }) {
   return (
     <div className="h-screen w-screen">
