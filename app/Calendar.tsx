@@ -5,7 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
 import { booking } from "@prisma/client";
 
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
 export default function Calendar({ bookings }: { bookings: booking[] }) {
   return (
@@ -13,10 +13,7 @@ export default function Calendar({ bookings }: { bookings: booking[] }) {
       <FullCalendar
         plugins={[dayGridPlugin, listPlugin]}
         initialView="dayGridMonth"
-        events={[
-          { title: "event 1", date: "2024-12-01T11:30:00" },
-          ...bookings.map((booking) => ({ title: booking.room, start: booking.startingTime, end: booking.endingTime })),
-        ]}
+        events={bookings.map((booking) => ({ title: booking.room, start: booking.startingTime, end: booking.endingTime }))}
         height={800}
         headerToolbar={{
           left: "prev,next",
